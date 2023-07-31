@@ -1,0 +1,41 @@
+{% if messages %}
+<ul
+  class="messages"
+  style="
+    width: 30vw;
+    height: 8vh;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: absolute;
+    bottom: 1rem;
+    right: 1.5rem;
+  "
+>
+  {% for message in messages %}
+  <div
+    class="alert {% if message.tags == 'error' %} alert-danger {% else %} alert-{{ message.tags }} {% endif %} alert-dismissible fade show"
+    role="alert"
+  >
+    {{ message }}
+    <input
+      type="button"
+      class="btn-close btn btn-xs"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    />
+  </div>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<!-- close alerts automatically after 2 seconds -->
+<script type="text/javascript">
+  if (document.querySelector(".alert")) {
+    document.querySelectorAll(".alert").forEach(function ($el) {
+      setTimeout(() => {
+        $el.classList.remove("show");
+      }, 5000);
+    });
+  }
+</script>
