@@ -45,12 +45,12 @@ class UserAdmin(BaseUserAdmin):
     )
     filter_horizontal = ("groups", "user_permissions")
 
-    def get_form(self, request, obj=None, **kwargs):
-        form = super().get_form(request, obj, **kwargs)
-        is_superuser = request.user.is_superuser
-        if is_superuser:
-            form.base_fields["is_superuser"].disabled = True
-        return form
+#    def get_form(self, request, obj=None, **kwargs):
+#        form = super().get_form(request, obj, **kwargs)
+#        is_superuser = request.user.is_superuser
+#        if is_superuser:
+#            form.base_fields["is_superuser"].disabled = True
+#        return form
 
 
 admin.site.register(User, UserAdmin)

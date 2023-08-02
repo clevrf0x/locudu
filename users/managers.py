@@ -1,5 +1,6 @@
 from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import gettext_lazy as _
+from .utils import normalize_phone_number, normalize_email
 
 
 class UserManager(BaseUserManager):
@@ -18,10 +19,14 @@ class UserManager(BaseUserManager):
         if not full_name:
             raise ValueError(_("full_name must be set"))
 
-        user = self.model(
-            phone_number=phone_number, full_name=full_name, **extra_fields
-        )
+        user = self.model(phone_number=normalize_phone_number(phone_number), full_name=full_name, **extra_fields)
         user.set_password(password)
+
+        # if email exists in kwargs, normalize_email
+        email = extra_fields.pop('email', None)
+        if email:
+            user.email = normalize_email(email)
+
         user.save()
         return user
 
@@ -33,8 +38,8 @@ class UserManager(BaseUserManager):
         extra_fields.setdefault("is_superuser", True)
         extra_fields.setdefault("is_active", True)
 
-        # if extra_fields.get("is_staff") is not True:
-        #    raise ValueError(_("Superuser must have is_staff=True."))
+        if extra_fields.get("is_admin") is not True:
+            raise ValueError(_("Superuser must have is_admin=True."))
 
         if extra_fields.get("is_superuser") is not True:
             raise ValueError(_("Superuser must have is_superuser=True."))

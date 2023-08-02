@@ -8,11 +8,19 @@
             <h1 class="pt-5 text-center">Login</h1>
             <div class="form-outline mb-4">
                 <label class="form-label" for="username">Email or Phone Number</label>
-                <input type="text" name="username" id="username" class="form-control" />
+                <input type="text"
+                       name="username"
+                       id="username"
+                       class="form-control"
+                       required />
             </div>
             <div class="form-outline mb-4">
                 <label class="form-label" for="password">Password</label>
-                <input type="password" name="password" id="password" class="form-control" />
+                <input type="password"
+                       name="password"
+                       id="password"
+                       class="form-control"
+                       required />
             </div>
             <div class="row mb-4">
                 <div class="col d-flex justify-content-end">
@@ -26,7 +34,7 @@
             <!-- Register buttons -->
             <div class="text-center">
                 <p>
-                    Not a member? <a href="#!">Register</a>
+                    Not a member? <a href="{% url 'register' %}">Register</a>
                 </p>
             </div>
         </form>
