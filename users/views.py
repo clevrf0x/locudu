@@ -52,7 +52,7 @@ class RegisterView(View):
         query = Q(phone_number=phone_number)
         if email:
             query = Q(phone_number=phone_number) | Q(email=email)
-            
+
         user = User.objects.filter(query)
         if user:
             messages.error(request, "User already exists")
