@@ -9,6 +9,14 @@
   transform: translate(-50%, -50%);
 }
 
+.row {
+  display: flex;
+}
+
+.column {
+  margin: 0 2rem;
+}
+
 .form-title {
   font-size: 2.3rem;
   text-align: center;
@@ -37,7 +45,8 @@
 
 .text-box {
   resize: vertical;
-  height: 4rem;
+  height: 5rem;
+  width: 51.6rem;
   padding: 0.3rem;
 }
 
