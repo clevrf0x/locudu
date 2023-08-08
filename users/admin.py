@@ -9,7 +9,22 @@ class UserAdmin(BaseUserAdmin):
     list_display = ("full_name", "phone_number", "email", "is_active", "is_admin")
     list_filter = ("is_active", "is_admin")
     fieldsets = (
-        (None, {"fields": ("full_name", "email", "phone_number", "password")}),
+        (
+            None,
+            {
+                "fields": (
+                    "full_name",
+                    "email",
+                    "phone_number",
+                    "password",
+                    "bio",
+                    "pincode",
+                    "city",
+                    "district",
+                    "state",
+                )
+            },
+        ),
         (
             "Permissions",
             {
@@ -34,6 +49,11 @@ class UserAdmin(BaseUserAdmin):
                     "email",
                     "password1",
                     "password2",
+                    "bio",
+                    "pincode",
+                    "city",
+                    "district",
+                    "state",
                 )
             },
         ),
@@ -44,6 +64,7 @@ class UserAdmin(BaseUserAdmin):
         "email",
     )
     filter_horizontal = ("groups", "user_permissions")
+
 
 #    def get_form(self, request, obj=None, **kwargs):
 #        form = super().get_form(request, obj, **kwargs)

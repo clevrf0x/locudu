@@ -1,7 +1,8 @@
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
 from django.core.validators import RegexValidator
-from django.utils.translation import gettext_lazy as _
+
+# from django.utils.translation import gettext_lazy as _
 
 from .managers import UserManager
 
@@ -13,9 +14,7 @@ phone_validator = RegexValidator(
 
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=100, unique=True, blank=True, null=True)
-    phone_number = models.CharField(
-        max_length=20, validators=[phone_validator], unique=True
-    )
+    phone_number = models.CharField(max_length=20, validators=[phone_validator], unique=True)
     full_name = models.CharField(max_length=50)
     bio = models.TextField(max_length=500, blank=True, null=True)
 
