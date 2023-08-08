@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block styles %}
-<link rel="stylesheet" href="{% static 'css/users/login.css' %}">
+<link rel="stylesheet" href="{% static 'css/users/base.css' %}">
 {% endblock %}
 {% block scripts %}{% endblock %}
 
 {% block content %}
-<div class="login-wrapper">
-  <div class="login-card">
-    <form class="login-form" method="post">
+<div class="wrapper">
+  <div class="card">
+    <form class="form" method="post">
       {% csrf_token %}
       <h1 class="form-title">Log in</h1>
       <div class="form-group">

@@ -1,39 +1,56 @@
 {% extends "base.html" %}
-{% block styles %}{% endblock %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/users/base.css' %}">
+{% endblock %}
+
 {% block scripts %}{% endblock %}
+
 {% block content %}
-    <div class="h-100 d-flex align-items-center justify-content-center pt-5">
-        <form class="w-25 pt-1" method="post">
+<div class="wrapper">
+    <div class="card">
+        <form class="form" method="post">
             {% csrf_token %}
-            <h1 class="text-center">Register</h1>
-            <div class="form-outline">
-                <label class="form-label" for="full_name">Name</label>
-                <input type="text"
-                       name="full_name"
-                       id="full_name"
-                       class="form-control"
-                       required />
+            <h1 class="form-title">Register</h1>
+
+            <div class="form-group">
+                <label class="form-label" for="full_name">Full name*</label>
+                <input class="form-input" type="text" name="full_name" id="full_name" required />
             </div>
-            <div class="form-outline">
+
+            <div class="form-group">
                 <label class="form-label" for="email">Email address</label>
-                <input type="email" name="email" id="email" class="form-control" />
+                <input class="form-input" type="email" name="email" id="email" />
             </div>
-            <div class="form-outline ">
-                <label class="form-label" for="phone_number">Phone Number</label>
-                <input type="tel"
-                       name="phone_number"
-                       id="phone_number"
-                       class="form-control"
-                       required />
+            <div class="form-group">
+                <label class="form-label" for="phone_number">Phone number*</label>
+                <input class="form-input" type="tel" name="phone_number" id="phone_number" required />
             </div>
-            <div class="form-outline">
-                <label class="form-label" for="password">Password</label>
-                <input type="password"
-                       name="password"
-                       id="password"
-                       class="form-control"
-                       required />
+
+            <div class="form-group">
+                <label class="form-label" for="password">Password*</label>
+                <input class="form-input" type="password" name="password" id="password" required />
             </div>
+
+            <!-- <div class="form-group">
+                <label class="form-label" for="bio">Bio</label>
+                <textarea class="form-input text-box" name="bio" id="bio"> </textarea>
+            </div> -->
+
+            <!-- Submit button -->
+            <div class="form-btn-wrap">
+                <button class="form-btn" type="submit">Sign up</button>
+            </div>
+            <!-- Register buttons -->
+            <div class="form-text-center">
+                <p>Already a member? <a href="{% url 'login' %}">Log in</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- <div class="h-100 d-flex align-items-center justify-content-center pt-5">
             <div class="form-outline">
                 <label class="form-label" for="bio">Bio</label>
                 <textarea class="form-control" name="bio" id="bio"></textarea>
@@ -54,16 +71,14 @@
                 <label class="form-label" for="state">State</label>
                 <input type="text" name="state" id="state" class="form-control" />
             </div>
-            <!-- Submit button -->
             <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary btn-block my-4 px-5">Sign up</button>
             </div>
-            <!-- Login buttons -->
             <div class="text-center">
                 <p>
                     Already a member? <a href="{% url 'login' %}">Login</a>
                 </p>
             </div>
         </form>
-    </div>
+    </div> -->
 {% endblock %}

@@ -1,4 +1,4 @@
-.login-card {
+.card {
   padding: 2rem;
   background-color: #fdfff5;
   border: 1px solid #232323;
@@ -13,11 +13,11 @@
   font-size: 2.3rem;
   text-align: center;
   letter-spacing: 0.2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.3rem;
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .form-label {
@@ -35,6 +35,12 @@
   padding: 0 0.5rem;
 }
 
+.text-box {
+  resize: vertical;
+  height: 4rem;
+  padding: 0.3rem;
+}
+
 .form-input:focus {
   outline: none;
 }
@@ -49,7 +55,7 @@
 .form-btn-wrap {
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .form-btn {
